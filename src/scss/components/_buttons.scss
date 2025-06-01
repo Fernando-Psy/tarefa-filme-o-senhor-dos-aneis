@@ -11,14 +11,14 @@
     text-align: center;
     background: vars.$gradient-primary;
     color: vars.$text-dark;
-    border: 2px solid darken(vars.$primary-color, 10%);
+    border: 2px solid color.adjust(vars.$primary-color, $lightness: -10%);
     box-shadow: vars.$shadow-md;
     transition: all vars.$transition-normal;
 
     &:hover {
         transform: translateY(-2px);
         box-shadow: vars.$shadow-lg;
-        background: darken(vars.$primary-color, 5%);
+        background: color.adjust(vars.$primary-color, $lightness: -5%);
     }
 
     &:active {

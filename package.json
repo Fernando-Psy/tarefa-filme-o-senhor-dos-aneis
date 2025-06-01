@@ -1,15 +1,17 @@
 {
   "name": "landing-page-filme-ebac",
   "version": "1.0.0",
-  "description": "",
+  "description": "Landing page da trilogia O Senhor dos Anéis",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "gulp",
-    "build": "gulp build"
+    "build": "gulp build",
+    "clean": "gulp clean",
+    "start": "npm run dev"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["landing-page", "lord-of-the-rings", "gulp", "sass"],
+  "author": "EBAC",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {

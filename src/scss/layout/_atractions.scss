@@ -1,0 +1,55 @@
+@use '../utils/variables' as vars;
+@use '../utils/mixins' as *;
+
+.attractions {
+    padding: vars.$spacing-3xl 0;
+    background-color: vars.$background-light;
+
+    @include respond-to-max(sm) {
+        padding: vars.$spacing-2xl 0;
+    }
+}
+
+.attractions__container {
+    @include container;
+}
+
+.attractions__title {
+    @include heading-2;
+    text-align: center;
+    margin-bottom: vars.$spacing-2xl;
+    color: vars.$secondary-color;
+    position: relative;
+
+    &::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 3px;
+        background-color: vars.$primary-color;
+        margin: vars.$spacing-sm auto 0;
+    }
+}
+
+.attractions__grid {
+    @include grid(3, vars.$spacing-lg);
+
+    @include respond-to-max(md) {
+        @include grid(2, vars.$spacing-md);
+    }
+
+    @include respond-to-max(sm) {
+        @include grid(1, vars.$spacing-md);
+    }
+}
+
+.attractions__item-title {
+    @include heading-3;
+    margin-bottom: vars.$spacing-sm;
+    color: vars.$tertiary-color;
+}
+
+.attractions__description {
+    @include body-text;
+    color: vars.$text-muted;
+}
