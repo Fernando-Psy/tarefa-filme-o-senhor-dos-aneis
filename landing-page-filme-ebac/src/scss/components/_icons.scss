@@ -1,0 +1,47 @@
+@use '../utils/variables' as vars;
+@use '../utils/mixins' as *;
+
+.attractions__icon-wrapper,
+.watch-options__icon-wrapper,
+.devices__icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto vars.$spacing-md;
+    padding: vars.$spacing-sm;
+    border-radius: vars.$border-radius-full;
+    background: vars.$gradient-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: vars.$shadow-sm;
+    transition: transform vars.$transition-normal;
+
+    &:hover {
+        transform: rotate(5deg);
+    }
+
+    @include respond-to-max(sm) {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.attractions__icon,
+.watch-options__icon,
+.devices__icon {
+    width: 100%;
+    height: auto;
+}
+
+// Estilo específico para o ícone FAQ
+.faq__icon {
+    font-size: vars.$font-size-xl;
+    font-weight: 300;
+    transition: transform vars.$transition-fast;
+    display: inline-block;
+    color: vars.$primary-color;
+
+    .faq__item.active & {
+        transform: rotate(45deg);
+    }
+}

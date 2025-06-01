@@ -1,0 +1,14 @@
+@use 'utils/variables' as *;
+@use 'utils/mixins' as *;
+
+@use 'components/buttons';
+@use 'components/icons';
+@use 'components/cards';
+
+@use 'layout/header';
+@use 'layout/hero';
+@use 'layout/movies';
+@use 'layout/watch-options';
+@use 'layout/devices';
+@use 'layout/faq';
+@use 'layout/footer';

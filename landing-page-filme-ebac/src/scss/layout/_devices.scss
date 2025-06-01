@@ -1,0 +1,64 @@
+@use '../utils/variables' as vars;
+@use '../utils/mixins' as *;
+
+.devices {
+    padding: vars.$spacing-3xl 0;
+    background-color: vars.$tertiary-color;
+    color: vars.$text-light;
+
+    @include respond-to-max(sm) {
+        padding: vars.$spacing-2xl 0;
+    }
+}
+
+.devices__container {
+    @include container;
+}
+
+.devices__title {
+    @include heading-2;
+    text-align: center;
+    margin-bottom: vars.$spacing-2xl;
+    color: vars.$primary-color;
+    position: relative;
+
+    &::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 3px;
+        background-color: vars.$primary-color;
+        margin: vars.$spacing-sm auto 0;
+    }
+}
+
+.devices__grid {
+    @include grid(4, vars.$spacing-lg);
+
+    @include respond-to-max(md) {
+        @include grid(2, vars.$spacing-md);
+    }
+
+    @include respond-to-max(sm) {
+        @include grid(1, vars.$spacing-md);
+    }
+}
+
+.devices__item {
+    background-color: rgba(vars.$background-light, 0.1);
+    border: 1px solid rgba(vars.$primary-color, 0.2);
+
+    &:hover {
+        background-color: rgba(vars.$background-light, 0.2);
+    }
+}
+
+.devices__item-title {
+    @include heading-3;
+    font-size: vars.$font-size-lg;
+    color: vars.$text-light;
+
+    @include respond-to-max(sm) {
+        font-size: vars.$font-size-md;
+    }
+}

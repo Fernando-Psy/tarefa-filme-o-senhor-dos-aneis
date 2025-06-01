@@ -1,0 +1,87 @@
+@use '../utils/variables' as vars;
+@use '../utils/mixins' as *;
+
+.faq {
+    padding: vars.$spacing-3xl 0;
+    background-color: vars.$background-light;
+
+    @include respond-to-max(sm) {
+        padding: vars.$spacing-2xl 0;
+    }
+}
+
+.faq__container {
+    @include container;
+}
+
+.faq__title {
+    @include heading-2;
+    text-align: center;
+    margin-bottom: vars.$spacing-2xl;
+    color: vars.$secondary-color;
+    position: relative;
+
+    &::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 3px;
+        background-color: vars.$primary-color;
+        margin: vars.$spacing-sm auto 0;
+    }
+}
+
+.faq__list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq__item {
+    margin-bottom: vars.$spacing-md;
+    border-radius: vars.$border-radius-md;
+    background-color: vars.$background-light;
+    box-shadow: vars.$shadow-sm;
+    overflow: hidden;
+}
+
+.faq__question {
+    padding: vars.$spacing-md;
+    cursor: pointer;
+    @include flex(row, space-between, center);
+    background-color: rgba(vars.$primary-color, 0.1);
+    transition: background-color vars.$transition-normal;
+
+    &:hover {
+        background-color: rgba(vars.$primary-color, 0.2);
+    }
+
+    h3 {
+        @include heading-3;
+        font-size: vars.$font-size-md;
+        margin: 0;
+        color: vars.$secondary-color;
+        flex: 1;
+
+        @include respond-to-max(sm) {
+            font-size: vars.$font-size-base;
+        }
+    }
+}
+
+.faq__answer {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all vars.$transition-normal;
+
+    p {
+        padding: vars.$spacing-md;
+        @include body-text;
+        color: vars.$text-muted;
+    }
+
+    .faq__item.active & {
+        max-height: 300px;
+        transition: all vars.$transition-normal;
+    }
+}

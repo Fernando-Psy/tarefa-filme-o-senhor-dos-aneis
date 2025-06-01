@@ -1,0 +1,45 @@
+@use '../utils/variables' as vars;
+@use '../utils/mixins' as *;
+
+.movies {
+    padding: vars.$spacing-3xl 0;
+    background-color: vars.$secondary-color;
+    color: vars.$text-light;
+
+    @include respond-to-max(sm) {
+        padding: vars.$spacing-2xl 0;
+    }
+}
+
+.movies__container {
+    @include container;
+}
+
+.movies__title {
+    @include heading-2;
+    text-align: center;
+    margin-bottom: vars.$spacing-2xl;
+    color: vars.$primary-color;
+    position: relative;
+
+    &::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 3px;
+        background-color: vars.$primary-color;
+        margin: vars.$spacing-sm auto 0;
+    }
+}
+
+.movies__list {
+    @include grid(3, vars.$spacing-lg);
+
+    @include respond-to-max(md) {
+        @include grid(2, vars.$spacing-md);
+    }
+
+    @include respond-to-max(sm) {
+        @include grid(1, vars.$spacing-md);
+    }
+}

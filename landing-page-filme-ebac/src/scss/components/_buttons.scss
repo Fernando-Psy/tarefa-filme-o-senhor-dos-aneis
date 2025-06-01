@@ -1,0 +1,43 @@
+@use '../utils/variables' as vars;
+@use '../utils/mixins' as mix;
+
+.hero__cta-button,
+.movies__cta {
+    display: inline-block;
+    padding: vars.$spacing-sm vars.$spacing-lg;
+    border-radius: vars.$border-radius-md;
+    font-family: vars.$font-primary;
+    font-weight: 600;
+    text-align: center;
+    background: vars.$gradient-primary;
+    color: vars.$text-dark;
+    border: 2px solid darken(vars.$primary-color, 10%);
+    box-shadow: vars.$shadow-md;
+    transition: all vars.$transition-normal;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: vars.$shadow-lg;
+        background: darken(vars.$primary-color, 5%);
+    }
+
+    &:active {
+        transform: translateY(1px);
+        box-shadow: vars.$shadow-sm;
+    }
+}
+
+.hero__cta-button {
+    font-size: vars.$font-size-md;
+    padding: vars.$spacing-md vars.$spacing-xl;
+
+    @include mix.respond-to-max(sm) {
+        font-size: vars.$font-size-base;
+        padding: vars.$spacing-sm vars.$spacing-lg;
+    }
+}
+
+.movies__cta {
+    font-size: vars.$font-size-sm;
+    padding: vars.$spacing-xs vars.$spacing-md;
+}

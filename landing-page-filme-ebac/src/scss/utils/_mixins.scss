@@ -1,0 +1,228 @@
+@use '../utils/variables' as vars;
+
+// Mixins de responsividade reorganizados
+@mixin respond-to($breakpoint) {
+    @if $breakpoint ==xs {
+        @media (max-width: vars.$breakpoint-xs) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==sm {
+        @media (min-width: vars.$breakpoint-xs + 1) and (max-width: vars.$breakpoint-sm) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==md {
+        @media (min-width: vars.$breakpoint-sm + 1) and (max-width: vars.$breakpoint-md) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==lg {
+        @media (min-width: vars.$breakpoint-md + 1) and (max-width: vars.$breakpoint-lg) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==xl {
+        @media (min-width: vars.$breakpoint-lg + 1) {
+            @content;
+        }
+    }
+}
+
+@mixin respond-to-max($breakpoint) {
+    @if $breakpoint ==xs {
+        @media (max-width: vars.$breakpoint-xs) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==sm {
+        @media (max-width: vars.$breakpoint-sm) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==md {
+        @media (max-width: vars.$breakpoint-md) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==lg {
+        @media (max-width: vars.$breakpoint-lg) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==xl {
+        @media (max-width: vars.$breakpoint-xl) {
+            @content;
+        }
+    }
+}
+
+@mixin respond-to-min($breakpoint) {
+    @if $breakpoint ==xs {
+        @media (min-width: vars.$breakpoint-xs) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==sm {
+        @media (min-width: vars.$breakpoint-sm) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==md {
+        @media (min-width: vars.$breakpoint-md) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==lg {
+        @media (min-width: vars.$breakpoint-lg) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==xl {
+        @media (min-width: vars.$breakpoint-xl) {
+            @content;
+        }
+    }
+}
+
+// Mixins utilitários com estrutura clara
+@mixin flex($direction: row, $justify: flex-start, $align: flex-start, $wrap: nowrap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
+}
+
+@mixin grid($columns: 1, $gap: vars.$spacing-md) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    gap: $gap;
+}
+
+// Mixins tipográficos com responsividade interna
+@mixin heading-1 {
+    font-family: vars.$font-primary;
+    font-size: vars.$font-size-4xl;
+    font-weight: 700;
+    line-height: 1.2;
+
+    & {
+        @include respond-to-max(md) {
+            font-size: vars.$font-size-3xl;
+        }
+
+        @include respond-to-max(sm) {
+            font-size: vars.$font-size-2xl;
+        }
+    }
+}
+
+@mixin heading-2 {
+    font-family: vars.$font-primary;
+    font-size: vars.$font-size-3xl;
+    font-weight: 700;
+    line-height: 1.2;
+
+    & {
+        @include respond-to-max(md) {
+            font-size: vars.$font-size-2xl;
+        }
+
+        @include respond-to-max(sm) {
+            font-size: vars.$font-size-xl;
+        }
+    }
+}
+
+@mixin heading-3 {
+    font-family: vars.$font-primary;
+    font-size: vars.$font-size-xl;
+    font-weight: 600;
+    line-height: 1.3;
+
+    & {
+        @include respond-to-max(sm) {
+            font-size: vars.$font-size-lg;
+        }
+    }
+}
+
+@mixin body-text {
+    font-family: vars.$font-secondary;
+    font-size: vars.$font-size-base;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+// Container com estilos base e responsivos separados
+@mixin container {
+    width: 100%;
+    max-width: vars.$container-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: vars.$spacing-lg;
+    padding-right: vars.$spacing-lg;
+
+    & {
+        @include respond-to-max(sm) {
+            padding-left: vars.$spacing-md;
+            padding-right: vars.$spacing-md;
+        }
+    }
+}
+
+// Efeitos e animações
+@mixin hover-effect {
+    transition: all vars.$transition-normal;
+
+    &:hover {
+        opacity: 0.85;
+        transform: translateY(-2px);
+    }
+}
+
+@mixin image-overlay($opacity: 0.4, $color: vars.$background-dark) {
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color, $opacity);
+        z-index: 1;
+    }
+}
+
+@mixin fade-in($duration: 0.5s, $delay: 0s) {
+    opacity: 0;
+    animation: fadeIn $duration ease-in forwards;
+    animation-delay: $delay;
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}

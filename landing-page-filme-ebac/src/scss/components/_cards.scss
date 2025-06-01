@@ -1,0 +1,87 @@
+@use '../utils/variables' as vars;
+@use '../utils/mixins' as *;
+
+.movies__card {
+    background-color: vars.$background-light;
+    border-radius: vars.$border-radius-lg;
+    overflow: hidden;
+    box-shadow: vars.$shadow-md;
+    transition: transform vars.$transition-normal, box-shadow vars.$transition-normal;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: vars.$shadow-lg;
+    }
+}
+
+.movies__image-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 380px;
+
+    @include respond-to-max(md) {
+        height: 320px;
+    }
+
+    @include respond-to-max(sm) {
+        height: 240px;
+    }
+}
+
+.movies__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform vars.$transition-slow;
+
+    .movies__card:hover & {
+        transform: scale(1.05);
+    }
+}
+
+.movies__content {
+    padding: vars.$spacing-lg;
+
+    @include respond-to-max(sm) {
+        padding: vars.$spacing-md;
+    }
+}
+
+.movies__card-title {
+    @include heading-3;
+    margin-bottom: vars.$spacing-xs;
+    color: vars.$secondary-color;
+}
+
+.movies__year {
+    font-family: vars.$font-secondary;
+    font-size: vars.$font-size-sm;
+    color: vars.$text-muted;
+    margin-bottom: vars.$spacing-sm;
+}
+
+.movies__description {
+    @include body-text;
+    margin-bottom: vars.$spacing-md;
+}
+
+// Estilos para os cards de atrações e outras seções com cards
+.attractions__item,
+.watch-options__item,
+.devices__item {
+    background-color: vars.$background-light;
+    border-radius: vars.$border-radius-md;
+    padding: vars.$spacing-lg;
+    text-align: center;
+    box-shadow: vars.$shadow-sm;
+    transition: transform vars.$transition-normal, box-shadow vars.$transition-normal;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: vars.$shadow-md;
+    }
+
+    @include respond-to-max(sm) {
+        padding: vars.$spacing-md;
+    }
+}
