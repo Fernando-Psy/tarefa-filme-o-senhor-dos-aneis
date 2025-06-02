@@ -1,6 +1,5 @@
 @use '../utils/variables' as vars;
 
-// Mixins de responsividade reorganizados
 @mixin respond-to($breakpoint) {
     @if $breakpoint ==xs {
         @media (max-width: vars.$breakpoint-xs) {

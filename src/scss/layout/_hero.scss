@@ -21,7 +21,6 @@
         z-index: 1;
     }
 
-    // Media query após todas as declarações regulares
     @include respond-to-max(sm) {
         padding: vars.$spacing-2xl 0;
     }
@@ -30,19 +29,16 @@
 .hero__container {
     position: relative;
     z-index: 2;
-    @include container; // Mixin sem media query - não causa problemas
+    @include container;
 
-    // Media query em bloco separado
     @include respond-to-min(md) {
         @include flex(row, space-between, center);
     }
 }
 
 .hero__content {
-    // Propriedades regulares primeiro
     @include fade-in(0.8s);
 
-    // Media queries depois
     @include respond-to-min(md) {
         width: 50%;
     }
@@ -54,7 +50,6 @@
 }
 
 .hero__title {
-    // Todas propriedades regulares agrupadas
     @include heading-1;
     margin-bottom: vars.$spacing-md;
     text-shadow: 0 2px 4px rgba(vars.$background-dark, 0.5);
@@ -94,7 +89,6 @@
     animation: float 4s ease-in-out infinite;
 }
 
-// Keyframes movidos para o final do arquivo
 @keyframes float {
     0%, 100% {
         transform: translateY(0);
