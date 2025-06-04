@@ -12,10 +12,6 @@ const del = require('del');
 
 // Caminhos
 const paths = {
-    html: {
-        src: 'src/**/*.html',
-        dest: 'dist/'
-    },
     styles: {
         src: 'src/scss/**/*.scss',
         dest: 'dist/css/'
@@ -33,13 +29,6 @@ const paths = {
 // Limpar a pasta dist
 function clean() {
     return del(['dist']);
-}
-
-// Copiar e minificar HTML
-function html() {
-    return gulp.src(paths.html.src)
-        .pipe(gulp.dest(paths.html.dest))
-        .pipe(browserSync.stream());
 }
 
 // Compilar Sass, adicionar prefixos e minificar CSS
@@ -93,17 +82,15 @@ function serve() {
 
     gulp.watch(paths.styles.src, styles);
     gulp.watch(paths.scripts.src, scripts);
-    gulp.watch(paths.html.src, html);
     gulp.watch(paths.images.src, images);
 }
 
 // Tasks compostas
-const build = gulp.series(clean, gulp.parallel(html, styles, scripts, images));
+const build = gulp.series(clean, gulp.parallel(styles, scripts, images));
 const watch = gulp.series(build, serve);
 
 // Exportar tasks
 exports.clean = clean;
-exports.html = html;
 exports.styles = styles;
 exports.scripts = scripts;
 exports.images = images;

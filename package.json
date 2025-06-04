@@ -10,7 +10,12 @@
     "clean": "gulp clean",
     "start": "npm run dev"
   },
-  "keywords": ["landing-page", "lord-of-the-rings", "gulp", "sass"],
+  "keywords": [
+    "landing-page",
+    "lord-of-the-rings",
+    "gulp",
+    "sass"
+  ],
   "author": "EBAC",
   "license": "ISC",
   "type": "commonjs",
@@ -21,6 +26,7 @@
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
+    "gulp-header": "^2.0.9",
     "gulp-imagemin": "^7.1.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
