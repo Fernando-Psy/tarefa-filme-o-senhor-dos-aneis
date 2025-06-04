@@ -63,6 +63,7 @@
 .movies__description {
     @include body-text;
     margin-bottom: vars.$spacing-md;
+    color: vars.$tertiary-color;
 }
 
 // Estilos para os cards de atrações e outras seções com cards
