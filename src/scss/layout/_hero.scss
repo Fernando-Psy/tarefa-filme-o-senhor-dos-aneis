@@ -5,7 +5,7 @@
     position: relative;
     color: vars.$text-light;
     padding: vars.$spacing-3xl 0;
-    background-image: url('../images/hero-bg.jpg');
+    background-image: url('../../images/terraMedia.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -24,76 +24,79 @@
     @include respond-to-max(sm) {
         padding: vars.$spacing-2xl 0;
     }
-}
 
-.hero__container {
-    position: relative;
-    z-index: 2;
-    @include container;
+    &__container {
+        position: relative;
+        z-index: 2;
+        @include container;
 
-    @include respond-to-min(md) {
-        @include flex(row, space-between, center);
-    }
-}
-
-.hero__content {
-    @include fade-in(0.8s);
-
-    @include respond-to-min(md) {
-        width: 50%;
+        @include respond-to-min(md) {
+            @include flex(row, space-between, center);
+        }
     }
 
-    @include respond-to-max(md) {
-        text-align: center;
+    &__content {
+        @include fade-in(0.8s);
+
+        @include respond-to-min(md) {
+            width: 50%;
+        }
+
+        @include respond-to-max(md) {
+            text-align: center;
+            margin-bottom: vars.$spacing-xl;
+        }
+    }
+
+    &__title {
+        @include heading-1;
+        margin-bottom: vars.$spacing-md;
+        text-shadow: 0 2px 4px rgba(vars.$background-dark, 0.5);
+        color: vars.$primary-color;
+    }
+
+    &__subtitle {
+        @include body-text;
+        font-size: vars.$font-size-lg;
         margin-bottom: vars.$spacing-xl;
-    }
-}
+        max-width: 600px;
 
-.hero__title {
-    @include heading-1;
-    margin-bottom: vars.$spacing-md;
-    text-shadow: 0 2px 4px rgba(vars.$background-dark, 0.5);
-    color: vars.$primary-color; // Esta era a linha problemática (62)
-}
-
-.hero__subtitle {
-    @include body-text;
-    font-size: vars.$font-size-lg;
-    margin-bottom: vars.$spacing-xl;
-    max-width: 600px;
-
-    @include respond-to-max(md) {
-        margin-left: auto;
-        margin-right: auto;
-        font-size: vars.$font-size-md;
-    }
-}
-
-.hero__image-wrapper {
-    @include fade-in(0.8s, 0.3s);
-
-    @include respond-to-min(md) {
-        width: 40%;
+        @include respond-to-max(md) {
+            margin-left: auto;
+            margin-right: auto;
+            font-size: vars.$font-size-md;
+        }
     }
 
-    @include respond-to-max(md) {
-        max-width: 300px;
-        margin: 0 auto;
-    }
-}
+    &__image-wrapper {
+        @include fade-in(0.8s, 0.3s);
 
-.hero__image {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 0 20px rgba(vars.$primary-color, 0.5));
-    animation: float 4s ease-in-out infinite;
-}
+        @include respond-to-min(md) {
+            width: 40%;
+        }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
+        @include respond-to-max(md) {
+            max-width: 300px;
+            margin: 0 auto;
+        }
     }
-    50% {
-        transform: translateY(-15px);
+
+    &__image {
+        width: 100%;
+        height: auto;
+        filter: drop-shadow(0 0 20px rgba(vars.$primary-color, 0.5));
+        animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-15px);
+        }
     }
 }
